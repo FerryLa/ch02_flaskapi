@@ -1,0 +1,11 @@
+Flask
+Flask-SQLAlchemy
+SQLAlchemy
+Flask-Migrate
+alembic
+Flask-Cors
+python-dotenv
+PyMySQL
+openai
+# psycopg2-binary   # PostgreSQL driver (optional)
+# gunicorn          # Production WSGI server (optional)
