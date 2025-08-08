@@ -3,6 +3,7 @@ from flask import Flask, request, jsonify
 import os
 from pathlib import Path
 from .config import DevConfig, ProdConfig
+from .extensions import migrate
 
 def create_app():
     app = Flask(__name__, instance_relative_config=True)
@@ -26,6 +27,7 @@ def create_app():
     # 4) DB init & 테이블 생성
     from .models import db  # db = SQLAlchemy()
     db.init_app(app)
+    migrate.init_app(app, db)
     with app.app_context():
         from .models import News, NewsSummary  # 모델 import 후
         db.create_all()
